@@ -44,6 +44,7 @@ input {
   border: 1px solid black;
 }
 */
+
 .clock-list {
   display: flex;
   flex-wrap: wrap;
@@ -82,15 +83,6 @@ input {
   color: red;
 }
 
-
-a{
-  text-decoration: none;
-}
-
-.container2{
-  display: flex;
-}
-
 li{
   list-style-type: none;
 }
@@ -111,5 +103,6 @@ li{
 .column{
   border: 1px solid black;
   margin-right: 20px;
+  margin-top: 20px;
   padding: 3%;
 }

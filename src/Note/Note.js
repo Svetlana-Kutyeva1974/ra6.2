@@ -1,5 +1,6 @@
 import React from "react";
 //import PropTypes from "prop-types";
+import './Note.css';
 
 const Note = ({note, onDelete }) => {
   console.log(' props в ноте',note);
@@ -19,6 +20,7 @@ const Note = ({note, onDelete }) => {
     </div>
   );
 };
+
 /*
 Note.propTypes = {
   note: PropTypes.shape({
