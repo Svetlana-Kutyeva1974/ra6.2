@@ -36,20 +36,24 @@ input {
   border-radius: 5px;
   border: 1px solid black;
 }
-
+/*
 .btn-add {
   padding: 5px 10px;
   font-size: 20px;
   border-radius: 5px;
   border: 1px solid black;
 }
-
+*/
 .clock-list {
   display: flex;
   flex-wrap: wrap;
   border-radius: 50%;
   margin-left: auto;
   margin-right: auto;
+  width: 100%;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  align-content: center;
 }
 
 .clock {
@@ -59,6 +63,8 @@ input {
   border-radius: 10px;
   text-align: center;
   margin-right: 40px;
+  border: 1px solid black;
+  
 }
 
 .btn-del {
@@ -73,14 +79,10 @@ input {
   background-color: #fff;
   cursor: pointer;
   font-size: 17px;
+  color: red;
 }
 
-.banner{
-  margin-top: 20px;
-}
-.title{
-  color: blue;
-}
+
 a{
   text-decoration: none;
 }
@@ -91,4 +93,23 @@ a{
 
 li{
   list-style-type: none;
+}
+
+.attached {
+  position: absolute;
+  width: 20px;
+  border: 1px solid black;
+  background-color :white;
+  border-radius: 50%;
+  color: red;
+  margin-top: -60px;
+  margin-left: 0.5rem;/*margin-left: 10rem;*/
+  /*left: 40px;
+  top: 50px;*/
+}
+
+.column{
+  border: 1px solid black;
+  margin-right: 20px;
+  padding: 3%;
 }

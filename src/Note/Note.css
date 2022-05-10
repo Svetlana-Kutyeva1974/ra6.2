@@ -15,6 +15,7 @@
   display: flex;
   flex-direction: column;
   align-content: flex-start;
+  width: 100%;
 }
 
 .input-form {
@@ -36,20 +37,21 @@ input {
   border-radius: 5px;
   border: 1px solid black;
 }
-
+/*
 .btn-add {
   padding: 5px 10px;
   font-size: 20px;
   border-radius: 5px;
   border: 1px solid black;
 }
-
+*/
 .clock-list {
   display: flex;
   flex-wrap: wrap;
   border-radius: 50%;
   margin-left: auto;
   margin-right: auto;
+  width: 100%;
 }
 
 .clock {
@@ -75,6 +77,12 @@ input {
   font-size: 17px;
 }
 
+.attached {
+  background-color :blue;
+  border-radius: 50%;
+  color: red;
+}
+
 .banner{
   margin-top: 20px;
 }
@@ -91,4 +99,8 @@ a{
 
 li{
   list-style-type: none;
+}
+
+.column {
+  max-width: 49.5%;
 }

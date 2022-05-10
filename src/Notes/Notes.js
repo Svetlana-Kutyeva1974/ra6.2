@@ -6,9 +6,9 @@ import {nanoid} from 'nanoid';
 import './Notes.css';
 
 
-function Notes() {
-  
-  const [clocks, setClocks] = useState([]);
+function Notes(props) {
+  console.log(' name component', props.name);
+  // const [clocks, setClocks] = useState([]);
   const [notes, setNotes] = useState([]);
 
   const loadActual = () => {
@@ -18,44 +18,49 @@ function Notes() {
     /*const findUSD = rate => rate.code === 'USD';
     const rate = rates.find(findUSD).value
     */
-   console.log(' массив заметок',notes);
-    setNotes({ notes });
+    //setNotes({ notes });
+    setNotes(notes);
     console.log(' массив заметок после set',notes);
     });
     //return notes;
   }
 
 
-  /*function onDelete(id) {
-    const copy = clocks.filter((e) => e.id !== id);
-    setClocks(copy);
-  }
-  */
-
-  function onDelete2(id) {
+  function onDelete(id) {
     const copy = notes.filter((e) => e.id !== id);
     setNotes(copy);
   }
-
+/*
   function submitForm(form) {
     if (form.name === '' || form.timeZone === '') return;
     const copy = [...clocks, {id: nanoid(), name: form.name, timeZone: form.timeZone}];
     setClocks(copy);
   } 
+*/
+function submitForm(form) {
+  if (form.note !== '') {
+    const copy = [...notes, {id: nanoid(), note: form.note}];
+    setNotes(copy);
+  }
+} 
 
   return (
     <>
       <span>Notes      </span>
       <button className='reload' onClick={loadActual} style={{color: 'green'}}>
-            &#128260;
+        &#128260;
       </button>
-      <NoteList notes={notes} onDelete={onDelete2}/>
-     
+      <NoteList items={notes} onDelete={onDelete}/>
       <Form submitForm={submitForm}/>
     </>
   )
 }
 
-export default Notes
+Notes.defaultProps = {
+  name: 'Компонент Notes'
+  };
+
+export default Notes;
+
 
 // <List clocks={clocks} onDelete={onDelete}/>

@@ -3,37 +3,35 @@ import PropTypes from 'prop-types'
 import './Form.css'
 
 function Form({ submitForm }) {
-  const [form, setForm] = useState({id: '', name: '', timeZone: ''});
+  const [form, setForm] = useState({id: '', note: ''});
 
-  function inputForm({ target }) {
+  // function inputForm({ target }) {
+    function inputForm(evt) {
     setForm((prev) => {
-      if (target.name === 'name') {
-        return { ...prev, name: target.value };
-      }
-      if (target.name === 'timezone') {
-        return { ...prev, timeZone: target.value };
+      if (evt.target.name === 'note') {
+        return { ...prev, note: evt.target.value };
       }
     })
   } 
 
-  function submit(e) {
+  function handleSubmit(e) {
     e.preventDefault();
     submitForm(form);
-    setForm({id: '', name: '', timeZone: ''});
+    setForm({id: '', note: ''});
   }
 
 
   return (
     <form className='input-form'>
       <div className='form-name'>
-        <label htmlFor="Name">Название</label>
-        <input name='name' value={form.name} type='text' onChange={inputForm} required />
+        <label htmlFor="Name">New Note</label>
+        <textarea 
+          id ='note' 
+          name='note' 
+          value={form.note}
+          onChange={inputForm} required />
       </div>
-      <div className='form-timezone'>
-        <label htmlFor="Time zone">Временная зона</label>
-        <input name='timezone' value={form.timeZone} type='number' onChange={inputForm} required />
-      </div>
-      <button className='btn-add' onClick={submit}>Добавить</button>
+      <button className='btn-add' onClick={handleSubmit}>&#10148;</button>
     </form>
   )
 }

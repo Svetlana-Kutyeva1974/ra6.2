@@ -3,20 +3,22 @@ import PropTypes from 'prop-types'
 import Note from '../Note/Note';
 import './NoteList.css'
 
-function NoteList({ notes, onDelete }) {
-  console.log(' массив в нотелист',notes);
-  const noteList = notes.map((item) => <Note className='clock' note= {item} key={item.id} onDelete={onDelete} />)
-  console.log(' массив tree в нотелист',noteList);
+function NoteList({ items, onDelete }) {
+  /*console.log(' массив в нотелист', items, items.notes);
+  const noteLists = (items.notes === undefined ? null : items.notes.map((item) => (<Note className='clock' note= {item} key={item.id} onDelete={onDelete}/>)));
+  */
+  const noteLists = items.map((item) => (<Note className='clock' note= {item} key={item.id} onDelete={onDelete}/>));
+  console.log(' массив tree в нотелист',noteLists);
   return (
     <div className='clock-list'>
-      {noteList}
+      {noteLists}
     </div>
   )
 }
 
 NoteList.propTypes = {
-  notes: PropTypes.array,
+  items: PropTypes.array,
   onDelete:  PropTypes.func,
 }
 
-export default NoteList
+export default NoteList;

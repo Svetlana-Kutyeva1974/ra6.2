@@ -32,14 +32,14 @@ input {
   border-radius: 5px;
   border: 1px solid black;
 }
-
+/*
 .btn-add {
   padding: 5px 10px;
   font-size: 20px;
   border-radius: 5px;
   border: 1px solid black;
 }
-
+*/
 .clock-list {
   display: flex;
   flex-wrap: wrap;
