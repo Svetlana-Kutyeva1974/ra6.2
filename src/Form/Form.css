@@ -28,6 +28,8 @@ textarea{
   padding: 3%;
   /*width: 180px;*/
  /* margin-right: 20px;*/
+  word-break: break-all;
+  overflow: visible;
 }
 
 .input-form {
@@ -96,4 +98,9 @@ input {
 
 li{
   list-style-type: none;
+}
+
+.description{
+  word-break: break-all;
+
 }

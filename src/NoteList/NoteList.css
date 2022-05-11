@@ -94,10 +94,11 @@ li{
   background-color :white;
   border-radius: 50%;
   color: red;
-  margin-top: -60px;
-  margin-left: 0.5rem;/*margin-left: 10rem;*/
-  /*left: 40px;
-  top: 50px;*/
+  top: -10px;
+  right: -10px;
+  
+ /* margin-top: -60px;*/
+  /*margin-left: 0.5rem;*/
 }
 
 .column{
@@ -105,6 +106,7 @@ li{
   margin-right: 20px;
   margin-top: 20px;
   padding: 3%;
+  position: relative;
 }
 
 .colorReload{
