@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import Form from '../Form/Form';
-//import List from '../List/List';
 import NoteList from '../NoteList/NoteList';
 import {nanoid} from 'nanoid';
 import './Notes.css';
@@ -8,47 +7,79 @@ import './Notes.css';
 
 function Notes(props) {
   console.log(' name component', props.name);
-  // const [clocks, setClocks] = useState([]);
   const [notes, setNotes] = useState([]);
 
   const loadActual = () => {
     fetch(process.env.REACT_APP_NOTES_URL)
     .then(response => response.json())
     .then(notes => {
-    /*const findUSD = rate => rate.code === 'USD';
-    const rate = rates.find(findUSD).value
-    */
-    //setNotes({ notes });
     setNotes(notes);
     console.log(' массив заметок после set',notes);
     });
-    //return notes;
   }
 
+
+//-------------------
+const load = (form) => {
+  fetch(process.env.REACT_APP_NOTES_URL, {
+      method: 'POST',
+      headers: {
+          'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(form),
+  }).then(result => {
+      if (result.status === 204) {
+          loadActual();
+      }
+  });
+}
+
+//для разнообразия через await
+async function deletes (id) {
+  let response = await fetch( `${process.env.REACT_APP_NOTES_URL}/${id}`, {
+    method: 'DELETE',
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  });
+  console.log('result delete=========', response);
+  // не нужен код ниже, т.к. удалили все вручную и на сервере и в state
+  /*if (response.status === 204) {
+    loadActual();
+  }*/
+}
+
+  /*-------------через then
+  const deletes = (id) => {
+    fetch(`${process.env.REACT_APP_NOTES_URL}/${id}`, {
+        method: 'DELETE',
+    }).then(result => {
+        if (result.status === 204) {
+            loadActual();
+        }
+    });
+}
+  -----------------*/
 
   function onDelete(id) {
     const copy = notes.filter((e) => e.id !== id);
     setNotes(copy);
+    deletes(id);
   }
-/*
+
   function submitForm(form) {
-    if (form.name === '' || form.timeZone === '') return;
-    const copy = [...clocks, {id: nanoid(), name: form.name, timeZone: form.timeZone}];
-    setClocks(copy);
+    if (form.note !== '') {
+      const add = [...notes, {id: nanoid(), note: form.note}];
+      setNotes(add);
+      load(add[add.length-1]);
+    }
   } 
-*/
-function submitForm(form) {
-  if (form.note !== '') {
-    const copy = [...notes, {id: nanoid(), note: form.note}];
-    setNotes(copy);
-  }
-} 
 
   return (
     <>
       <span>Notes      </span>
       <button className='reload' onClick={loadActual} style={{color: 'green'}}>
-        &#128260;
+        <span className='colorReload'>&#128260;</span>
       </button>
       <NoteList items={notes} onDelete={onDelete}/>
       <Form submitForm={submitForm}/>
@@ -63,4 +94,24 @@ Notes.defaultProps = {
 export default Notes;
 
 
-// <List clocks={clocks} onDelete={onDelete}/>
+
+
+
+
+
+  /*общий вариант на память
+  fetch(url, {  
+    method: 'post',  
+    headers: {  
+      "Content-type": "application/json"  
+    },  
+    body: 'foo=bar&lorem=ipsum'  
+  })
+  .then(json)  
+  .then(function (data) {  
+    console.log('Request succeeded with JSON response', data);  
+  })  
+  .catch(function (error) {  
+    console.log('Request failed', error);  
+  });
+  */

@@ -25,29 +25,6 @@
   justify-content: flex-start;
 }
 
-
-/*
-.btn-add {
-  padding: 5px 10px;
-  font-size: 20px;
-  border-radius: 5px;
-  border: 1px solid black;
-}
-
-.clock-list {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.clock {
-  width: 100px;
-  border: solid 1px;
-  position: relative;
-  border-radius: 10px;
-  text-align: center;
-  margin-right: 40px;
-}
-*/
 .btn-del {
   position: absolute;
   width: 30px;
@@ -70,20 +47,6 @@ input {
   max-width: 160px;
   border-radius: 5px;
   border: 1px solid black;
-}
-
-.banner{
-  margin-top: 20px;
-}
-.title{
-  color: blue;
-}
-a{
-  text-decoration: none;
-}
-
-.container2{
-  display: flex;
 }
 
 li{

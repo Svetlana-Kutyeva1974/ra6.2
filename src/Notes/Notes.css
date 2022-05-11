@@ -43,6 +43,7 @@ input {
 .clock-list {
   display: flex;
   flex-wrap: wrap;
+  
 }
 
 .clock {
@@ -68,20 +69,6 @@ input {
   font-size: 17px;
 }
 
-.banner{
-  margin-top: 20px;
-}
-.title{
-  color: blue;
-}
-a{
-  text-decoration: none;
-}
-
-.container2{
-  display: flex;
-}
-
 li{
   list-style-type: none;
 }
@@ -90,5 +77,12 @@ li{
   width: 20px;
   border: 1px solid black;
   border-radius: 50%;
-  background-color: transparent;
+  /*background-color: transparent;*/
+  
+}
+.colorReload{
+  color: green;
+  width: 20px;
+  /*background-color: rgb(158, 236, 158);*/
+  border-radius: 50%;
 }

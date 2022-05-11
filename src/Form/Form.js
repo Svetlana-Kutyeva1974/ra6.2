@@ -5,8 +5,7 @@ import './Form.css'
 function Form({ submitForm }) {
   const [form, setForm] = useState({id: '', note: ''});
 
-  // function inputForm({ target }) {
-    function inputForm(evt) {
+  function inputForm(evt) {
     setForm((prev) => {
       if (evt.target.name === 'note') {
         return { ...prev, note: evt.target.value };
@@ -31,7 +30,7 @@ function Form({ submitForm }) {
           value={form.note}
           onChange={inputForm} required />
       </div>
-      <button className='btn-add' onClick={handleSubmit}>&#10148;</button>
+      <button className='btn-add2' onClick={handleSubmit}>&#10148;</button>
     </form>
   )
 }
