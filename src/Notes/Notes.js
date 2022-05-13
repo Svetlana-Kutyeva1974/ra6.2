@@ -23,7 +23,8 @@ function Notes(props) {
 const load = (form) => {
   fetch(process.env.REACT_APP_NOTES_URL, {
       method: 'POST',
-      mode: 'no-cors',
+      mode: 'cors',
+      credentials: 'include',
       headers: {
           'Content-Type': 'application/json'
       },
@@ -39,7 +40,8 @@ const load = (form) => {
 async function deletes (id) {
   let response = await fetch( `${process.env.REACT_APP_NOTES_URL}/${id}`, {
     method: 'DELETE',
-    mode: 'no-cors',
+    mode: 'cors',
+    credentials: 'include',
     headers: {
       'Content-Type': 'application/json'
     }
