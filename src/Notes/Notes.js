@@ -25,9 +25,10 @@ const load = (form) => {
       method: 'POST',
       /*mode: 'cors',
       credentials: 'include',
+      */
       headers: {
           'Content-Type': 'application/json'
-      },*/
+      },
       body: JSON.stringify(form),
   }).then(result => {
       if (result.status === 204) {
@@ -42,9 +43,10 @@ async function deletes (id) {
     method: 'DELETE',
     /*mode: 'cors',
     credentials: 'include',
+    */
     headers: {
       'Content-Type': 'application/json'
-    }*/
+    }
   });
   console.log('result delete=========', response);
   // не нужен код ниже, т.к. удалили все вручную и на сервере и в state
