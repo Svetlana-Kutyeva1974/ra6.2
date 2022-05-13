@@ -23,9 +23,9 @@ function Notes(props) {
 const load = (form) => {
   fetch(process.env.REACT_APP_NOTES_URL, {
       method: 'POST',
-      headers: {
-          'Content-Type': 'application/json'
-      },
+      //headers: {
+      //    'Content-Type': 'application/json'
+     // },
       body: JSON.stringify(form),
   }).then(result => {
       if (result.status === 204) {
@@ -38,9 +38,9 @@ const load = (form) => {
 async function deletes (id) {
   let response = await fetch( `${process.env.REACT_APP_NOTES_URL}/${id}`, {
     method: 'DELETE',
-    headers: {
-      'Content-Type': 'application/json'
-    }
+    //headers: {
+    //  'Content-Type': 'application/json'
+    //}
   });
   console.log('result delete=========', response);
   // не нужен код ниже, т.к. удалили все вручную и на сервере и в state
